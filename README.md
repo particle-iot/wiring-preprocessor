@@ -1,5 +1,7 @@
 # Wiring Preprocessor
 
+[![Build Status](https://travis-ci.com/particle-iot/wiring-preprocessor.svg?branch=master)](https://travis-ci.com/particle-iot/wiring-preprocessor)
+
 This Javascript library preprocesses `.ino` files into `.cpp`.
 
 ## Installing
