@@ -25,18 +25,18 @@ const Parser = {
 		declarations(str) {
 			// Since these don't handle comments those need to be
 			// removed separately.
-			const declrRegex = new RegExp("[\\w\\[\\]\\*]+\\s+[&\\[\\]\\*\\w\\s]+\\([&,\\[\\]\\*\\w\\s]*\\)(?=\\s*\\;);", 'gm');
+			const declrRegex = new RegExp('[\\w\\[\\]\\*]+\\s+[&\\[\\]\\*\\w\\s]+\\([&,\\[\\]\\*\\w\\s]*\\)(?=\\s*\\;);', 'gm');
 			return Parser.matchAll(declrRegex, str);
 		},
 		definitions(str) {
-			const fnRegex = new RegExp("[\\w\\[\\]\\*]+\\s+[&\\[\\]\\*\\w\\s]+\\([&,\\[\\]\\*\\w\\s]*\\)(?=\\s*\\{)", 'gm');
+			const fnRegex = new RegExp('[\\w\\[\\]\\*]+\\s+[&\\[\\]\\*\\w\\s]+\\([&,\\[\\]\\*\\w\\s]*\\)(?=\\s*\\{)', 'gm');
 			return Parser.matchAll(fnRegex, str);
 		}
 	},
 
 	includes: {
 		findAll(str) {
-			const fnRegex = new RegExp("#include ((<[^>]+>)|(\"[^\"]+\"))", 'gm');
+			const fnRegex = new RegExp('#include ((<[^>]+>)|("[^"]+"))', 'gm');
 			return Parser.matchAll(fnRegex, str);
 		}
 	},
@@ -63,17 +63,17 @@ const Parser = {
 	},
 
 
-	/**
+	/*
 	 * Strip out anything the function definition code doesn't deal with well.
 	 * Essentially anything that couldn't possibly contain a function def.
 	 */
 	stripText(contents) {
 		const cruft = new RegExp(
-				"('.')" +
-				"|(\"(?:[^\"\\\\]|\\\\.)*\")" +
-				"|(//.[^\n]*)" +
-				"|(/\\*[^*]*(?:\\*(?!/)[^*]*)*\\*/)" +
-				"|(^\\s*#.*?$)"
+			"('.')" +
+				'|("(?:[^"\\\\]|\\\\.)*")' +
+				'|(//.[^\n]*)' +
+				'|(/\\*[^*]*(?:\\*(?!/)[^*]*)*\\*/)' +
+				'|(^\\s*#.*?$)'
 			, 'mgi');
 
 		return contents.replace(cruft, '');
@@ -133,7 +133,7 @@ const Parser = {
 		return utilities.setComplement(defined, found);
 	},
 
-	/**
+	/*
 	 * remove things that look like definitions but are not
 	 */
 	removeSpecialCaseDefinitions: function removeSpecialCaseDefinitions(defined) {
@@ -141,12 +141,12 @@ const Parser = {
 		const specialCases = [
 			new RegExp(/\belse\b\s+\bif\b/) /* else if(foo) */
 		];
-		next_definition:
+		nextDefinition:
 		for (let i = 0; i < defined.length; i++) {
 			// remove special cases
 			for (let j = 0; j < specialCases.length; j++) {
 				if (specialCases[j].test(defined[i])) {
-					continue next_definition;
+					continue nextDefinition;
 				}
 			}
 			wellDefined.push(defined[i]);
@@ -154,21 +154,21 @@ const Parser = {
 		return wellDefined;
 	},
 
-	/**
+	/*
 	 * remove definitions with custom classes, structs and enums as parameters
 	 */
 	removeDefinitionsWithCustomTypes: function removeDefinitionsWithCustomTypes(defined, types) {
 		const builtinDefined = [];
 		const customTypes = [];
 		for (let i = 0; i < types.length; i++) {
-			customTypes[i] = new RegExp("\\b" + types[i] + "\\b");
+			customTypes[i] = new RegExp('\\b' + types[i] + '\\b');
 		}
-		next_definition:
+		nextDefinition:
 		for (let i = 0; i < defined.length; i++) {
 			// remove custom types
 			for (let j = 0; j < customTypes.length; j++) {
 				if (customTypes[j].test(defined[i])) {
-					continue next_definition;
+					continue nextDefinition;
 				}
 			}
 			builtinDefined.push(defined[i]);
@@ -182,13 +182,13 @@ const Parser = {
 		// Find the first thing that isn't these.
 		const nonStatement = [
 			// Whitespace
-			"\\s+",
+			'\\s+',
 
 			// Comments
-			"|(/\\*[^*]*(?:\\*(?!/)[^*]*)*\\*/)|(//.*?$)",
+			'|(/\\*[^*]*(?:\\*(?!/)[^*]*)*\\*/)|(//.*?$)',
 
 			// Include statements
-			"|(#include.+$)"
+			'|(#include.+$)'
 		];
 
 		const pat = new RegExp(nonStatement.join(''), 'mgi');
@@ -205,13 +205,12 @@ const Parser = {
 		return lastMatch;
 	},
 
-	/**
+	/*
 	 * just the strings please.
 	 * @param results
 	 * @param group The capture group to return or the entire match
 	 */
-	flattenRegexResults(results, group) {
-		group = group || 0;
+	flattenRegexResults(results, group = 0) {
 		if (results) {
 			for (let i = 0; i < results.length; i++) {
 				results[i] = results[i][group];

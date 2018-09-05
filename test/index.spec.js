@@ -1,3 +1,4 @@
+'use strict';
 const glob = require('glob-promise');
 const path = require('path');
 const fs = require('fs');

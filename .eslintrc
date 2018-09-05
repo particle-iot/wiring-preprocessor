@@ -1,0 +1,11 @@
+{
+	"extends": "particle",
+	"env": {
+		"node": true,
+		"es6": true
+	},
+	"rules": {
+		"no-control-regex": "off"
+	}
+}
+

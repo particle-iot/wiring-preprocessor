@@ -1,12 +1,11 @@
 'use strict';
-const fs = require('fs');
 
 module.exports = {
 	stringInsert(str, idx, val) {
 		return str.substring(0, idx) + val + str.substring(idx);
 	},
 
-	/**
+	/*
 	 * Give the set of items in required that aren't in found
 	 * @param required
 	 * @param found
