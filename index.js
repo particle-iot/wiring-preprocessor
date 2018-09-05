@@ -3,7 +3,7 @@ const fs = require('fs');
 const regexParser = require('./regexParser.js');
 const utilities = require('./utilities.js');
 
-function processFile(content) {
+function processFile(inputFile, content) {
 	// Skip files with PARTICLE_NO_PREPROCESSOR
 	const noPreprocessorIdx = regexParser.getNoPreprocessor(content);
 	if (noPreprocessorIdx >= 0) {
@@ -20,7 +20,7 @@ function processFile(content) {
 	const appIncludeIdx = regexParser.getApplicationInclude(content);
 
 	// Add function prototypes after other includes
-	const prototypesIdx = regexParser.getFirstStatement(content);
+	let prototypesIdx = regexParser.getFirstStatement(content);
 
 	// If prototype position would be before existing application.h move it to later
 	if (appIncludeIdx > prototypesIdx) {

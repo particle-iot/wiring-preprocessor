@@ -53,7 +53,8 @@ const Parser = {
 	},
 
 	matchAll(expr, str) {
-		const m, matches = [];
+		let m;
+		const matches = [];
 
 		while ((m = expr.exec(str)) !== null) {
 			matches.push(m);
@@ -108,7 +109,7 @@ const Parser = {
 
 	getMissingDeclarations(contents) {
 		// All the ones that don't need extra declarations
-		const found = Parser.functions.declarations(contents);
+		let found = Parser.functions.declarations(contents);
 		found = Parser.flattenRegexResults(found);
 
 		// All the user defined types
@@ -120,7 +121,7 @@ const Parser = {
 		);
 
 		// All the functions we have
-		const defined = Parser.functions.definitions(contents);
+		let defined = Parser.functions.definitions(contents);
 		defined = Parser.flattenRegexResults(defined);
 		defined = Parser.removeSpecialCaseDefinitions(defined);
 		defined = Parser.removeDefinitionsWithCustomTypes(defined, types);
@@ -143,7 +144,7 @@ const Parser = {
 		next_definition:
 		for (let i = 0; i < defined.length; i++) {
 			// remove special cases
-			for (const j = 0; j < specialCases.length; j++) {
+			for (let j = 0; j < specialCases.length; j++) {
 				if (specialCases[j].test(defined[i])) {
 					continue next_definition;
 				}
@@ -165,7 +166,7 @@ const Parser = {
 		next_definition:
 		for (let i = 0; i < defined.length; i++) {
 			// remove custom types
-			for (const j = 0; j < customTypes.length; j++) {
+			for (let j = 0; j < customTypes.length; j++) {
 				if (customTypes[j].test(defined[i])) {
 					continue next_definition;
 				}
@@ -191,9 +192,9 @@ const Parser = {
 		];
 
 		const pat = new RegExp(nonStatement.join(''), 'mgi');
-		const lastMatch = 0;
+		let lastMatch = 0;
 
-		const match;
+		let match;
 		while ((match = pat.exec(contents)) !== null) {
 			if (match.index !== lastMatch) {
 				break;
@@ -219,3 +220,5 @@ const Parser = {
 		return results;
 	},
 };
+
+module.exports = Parser;

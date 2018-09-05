@@ -14,7 +14,7 @@ npm install wiring-preprocessor
 const preprocessor = require('wiring-preprocessor');
 
 const inoFile = fs.readFileSync('app.ino', 'utf8');
-const cppFile = preprocessor.processFile(inoFile);
+const cppFile = preprocessor.processFile('app.ino', inoFile);
 fs.writeFileSync('app.cpp', cppFile);
 ```
 
