@@ -1,6 +1,11 @@
 {
   "src": {
+    "beforeStartCommand": "npm run lint && npm run test",
     "tagName": "v%s"
   },
-  "increment": "minor"
+  "increment": "minor",
+  "github": {
+    "release": true,
+    "releaseName": "%s"
+  }
 }
