@@ -1,0 +1,29 @@
+{
+  "name": "wiring-preprocessor",
+  "version": "1.0.0",
+  "description": "Preprocess Wiring (ino) files to C++ (cpp)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/ -R spec",
+    "lint": "eslint -f unix src/",
+    "lint:fix": "eslint --fix -f unix src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/particle-iot/wiring-preprocessor.git"
+  },
+  "keywords": [
+    "particle",
+    "wiring",
+    "ino"
+  ],
+  "author": "Wojtek Siudzinski",
+  "contributors": [
+    "Julien Vanier"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/particle-iot/wiring-preprocessor/issues"
+  },
+  "homepage": "https://github.com/particle-iot/wiring-preprocessor#readme"
+}
