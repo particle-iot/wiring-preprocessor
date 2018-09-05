@@ -4,6 +4,16 @@
 
 This Javascript library preprocesses `.ino` files into `.cpp`.
 
+## Overview
+
+The preprocessor automatically adds the line `#include "Particle.h"` to the top of the file, unless your file already includes `"Particle.h"`, `"Arduino.h"` or `"application.h"`.
+
+The preprocessor adds prototypes for your functions so your code can call functions declared later in the source code. The function prototypes are added at the top of the file, below `#include` statements.
+
+If you define custom classes, structs or enums in your code, the preprocessor will not add prototypes for functions with those custom types as arguments. This is to avoid putting the prototype before the type definition. This doesn't apply to functions with types defined in libraries. Those functions will get a prototype.
+
+If you are getting unexpected errors when compiling valid code, it could be the preprocessor causing issues in your code. You can disable the preprocessor by adding `#pragma PARTICLE_NO_PREPROCESSOR` to your file. Be sure to add `#include "Particle.h"` and the function prototypes to your code.
+
 ## Installing
 
 ```
@@ -24,5 +34,11 @@ fs.writeFileSync('app.cpp', cppFile);
 
 ```
 npm test
+```
+
+## Release
+
+```
+npm run release <major|minor|patch>
 ```
 

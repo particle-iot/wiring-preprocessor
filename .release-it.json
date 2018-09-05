@@ -1,0 +1,6 @@
+{
+  "src": {
+    "tagName": "v%s"
+  },
+  "increment": "minor"
+}
