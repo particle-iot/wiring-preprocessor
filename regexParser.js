@@ -210,7 +210,8 @@ const Parser = {
 	 * @param results
 	 * @param group The capture group to return or the entire match
 	 */
-	flattenRegexResults(results, group = 0) {
+	flattenRegexResults(results, group) {
+		group = group || 0;
 		if (results) {
 			for (let i = 0; i < results.length; i++) {
 				results[i] = results[i][group];

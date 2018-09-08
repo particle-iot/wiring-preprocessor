@@ -34,11 +34,11 @@ describe('Wiring preprocessor', () => {
 		expect(preprocessor).to.be.ok;
 	});
 
-	forEachFixture('fixtures', ({ name, directory }) => {
-		it(`processes ${name}`, () => {
+	forEachFixture('fixtures', (fixture) => {
+		it(`processes ${fixture.name}`, () => {
 			return Promise.all([
-				readFixture(directory, 'input.ino'),
-				readFixture(directory, 'output.cpp'),
+				readFixture(fixture.directory, 'input.ino'),
+				readFixture(fixture.directory, 'output.cpp'),
 			]).then((files) => {
 				const ino = files[0];
 				const cpp = files[1];
