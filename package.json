@@ -4,7 +4,12 @@
   "description": "Preprocess Wiring (ino) files to C++ (cpp)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/ -R spec",
+    "test": "npm run test:unit",
+    "test:ci": "npm run test:unit -- --forbid-only && npm run coverage",
+    "test:unit": "mocha './src/**/*.test.js' --color",
+    "test:unit:watch": "npm run test:unit -- --watch",
+    "test:unit:inspect": "npm run test:unit -- --inspect-brk",
+    "test:unit:silent": "PARTICLE_NOOP=$(npm run test:unit)",
     "lint": "eslint . --ext .js --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
     "release": "release-it"
