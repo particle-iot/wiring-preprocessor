@@ -1,3 +1,7 @@
+/******************************************************/
+//       THIS IS A GENERATED FILE - DO NOT EDIT       //
+/******************************************************/
+
 // This should be preprocessed
 
 // #pragma PARTICLE_NO_PREPROCESSOR

@@ -1,11 +1,18 @@
 const regexParser = require('./regex-parser.js');
 const utilities = require('./utilities.js');
+const banner = [
+	'/******************************************************/',
+	'//       THIS IS A GENERATED FILE - DO NOT EDIT       //',
+	'/******************************************************/',
+	''
+];
 
 
-function processFile(inputFile, content) {
+module.exports.processFile = (inputFile, content) => {
 	// Skip files with PARTICLE_NO_PREPROCESSOR
 	const noPreprocessorIdx = regexParser.getNoPreprocessor(content);
-	if (noPreprocessorIdx >= 0) {
+
+	if (noPreprocessorIdx >= 0){
 		// Comment out the fake pragma to avoid GCC warning
 		content = utilities.stringInsert(
 			content,
@@ -22,7 +29,7 @@ function processFile(inputFile, content) {
 	let prototypesIdx = regexParser.getFirstStatement(content);
 
 	// If prototype position would be before existing application.h move it to later
-	if (appIncludeIdx > prototypesIdx) {
+	if (appIncludeIdx > prototypesIdx){
 		prototypesIdx = content.indexOf('\n', appIncludeIdx) + 1;
 	}
 
@@ -33,24 +40,29 @@ function processFile(inputFile, content) {
 	const cleanText = regexParser.stripText(content);
 	const missingFuncs = regexParser.getMissingDeclarations(cleanText);
 
-	const prototypesStr = missingFuncs.join('\n') + '\n'
-		+ '#line ' + linesBeforeInjection + ' "' + inputFile + '"\n';
 	content = utilities.stringInsert(
 		content,
 		prototypesIdx,
-		prototypesStr
+		[
+			...missingFuncs,
+			`#line ${linesBeforeInjection} "${inputFile}"`,
+			''
+		].join('\n')
 	);
 
 	// Add application.h to the top of the file unless it is already included
-	if (appIncludeIdx === -1) {
-		const includeStr = '#include "application.h"\n' +
-			'#line 1 "' + inputFile + '"\n';
-
-		content = includeStr + content;
+	if (appIncludeIdx === -1){
+		content = utilities.stringInsertLines(
+			content,
+			0,
+			[
+				'#include "application.h"',
+				`#line 1 "${inputFile}"`
+			].join('\n')
+		);
 	}
-	return content;
-}
 
-module.exports = {
-	processFile
+	// add banner
+	return utilities.stringInsertLines(content, 0, banner.join('\n'));
 };
+

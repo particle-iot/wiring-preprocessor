@@ -1,3 +1,7 @@
+/******************************************************/
+//       THIS IS A GENERATED FILE - DO NOT EDIT       //
+/******************************************************/
+
 /* This blinks the LED */
 #define PIN D7
 #define RATE 10

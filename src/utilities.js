@@ -1,6 +1,12 @@
 module.exports = {
-	stringInsert(str, idx, val) {
+	stringInsert(str, idx, val){
 		return str.substring(0, idx) + val + str.substring(idx);
+	},
+
+	stringInsertLines(str, idx, val){
+		const lines = str.split(/\r?\n/);
+		lines.splice(idx, 0, val);
+		return lines.join('\n');
 	},
 
 	/*
@@ -8,16 +14,16 @@ module.exports = {
 	 * @param required
 	 * @param found
 	 */
-	setComplement(required, found) {
+	setComplement(required, found){
 		const hash = {};
-		for (let i = 0; i < found.length; i++) {
+		for (let i = 0; i < found.length; i++){
 			hash[found[i]] = true;
 		}
 
 		const results = [];
-		for (let i = 0; i < required.length; i++) {
+		for (let i = 0; i < required.length; i++){
 			const item = required[i];
-			if (hash[item]) {
+			if (hash[item]){
 				continue;
 			}
 			results.push(item);
