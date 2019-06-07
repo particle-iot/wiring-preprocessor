@@ -12,6 +12,7 @@
     "test:unit:silent": "PARTICLE_NOOP=$(npm run test:unit)",
     "lint": "eslint . --ext .js --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
+    "coverage": "nyc --reporter=text --include='src/**/*.js' --temp-dir=./tmp/ --check-coverage --lines 85 npm run test:unit:silent",
     "release": "release-it"
   },
   "repository": {
