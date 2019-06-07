@@ -39,6 +39,6 @@
     "glob": "^7.1.4",
     "glob-promise": "^3.4.0",
     "mocha": "^6.1.4",
-    "release-it": "^7.6.1"
+    "release-it": "^12.3.0"
   }
 }
