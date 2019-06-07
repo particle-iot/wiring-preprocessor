@@ -1,5 +1,5 @@
-const regexParser = require('./regex-parser.js');
-const utilities = require('./utilities.js');
+const regexParser = require('./regex-parser');
+const utilities = require('./utilities');
 const banner = [
 	'/******************************************************/',
 	'//       THIS IS A GENERATED FILE - DO NOT EDIT       //',

@@ -5,7 +5,7 @@
  * necessary to translate them into firmware compilable C code.
  */
 
-const utilities = require('./utilities.js');
+const utilities = require('./utilities');
 
 // identify function declarations
 // c language requires functions to be declared before they are used,
