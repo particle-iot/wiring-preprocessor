@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
 	stringInsert(str, idx, val) {
 		return str.substring(0, idx) + val + str.substring(idx);

@@ -1,4 +1,3 @@
-'use strict';
 /**
  *
  * This library is a basic attempt at identifying wiring-compatible

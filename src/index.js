@@ -1,5 +1,3 @@
-'use strict';
-
 const regexParser = require('./regex-parser.js');
 const utilities = require('./utilities.js');
 

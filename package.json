@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/ -R spec",
-    "lint": "eslint -f unix .",
-    "lint:fix": "eslint --fix -f unix .",
+    "lint": "eslint . --ext .js --ignore-path .gitignore",
+    "lint:fix": "npm run lint -- --fix",
     "release": "release-it"
   },
   "repository": {
