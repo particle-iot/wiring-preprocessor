@@ -1,6 +1,8 @@
 'use strict';
-const regexParser = require('./regexParser.js');
+
+const regexParser = require('./regex-parser.js');
 const utilities = require('./utilities.js');
+
 
 function processFile(inputFile, content) {
 	// Skip files with PARTICLE_NO_PREPROCESSOR
