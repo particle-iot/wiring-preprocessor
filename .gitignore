@@ -1,3 +1,41 @@
-.env
-node_modules
-/.idea
+###################################################################### macOS ##
+.DS_Store*
+Icon
+
+ # custom finder icon (see: https://stackoverflow.com/a/21111738/579167)
+thumbs.db
+._*
+
+##################################################################### common ##
+tmp
+logs
+public
+*.log
+pids
+*.pid
+*.pid.lock
+*.seed
+*.csv
+*.dat
+*.out
+*.env
+*.gz
+.directory
+.idea
+
+######################################################################## vim ##
+Session.vim
+
+####################################################################### node ##
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+.yarn-integrity
+.esm-cache
+
+######################################################################### js ##
+*.js.map
+
