@@ -1,7 +1,7 @@
 {
   "name": "wiring-preprocessor",
   "description": "Preprocess Wiring (ino) files to C++ (cpp)",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Particle Industries, inc",
   "license": "Apache-2.0",
   "homepage": "https://github.com/particle-iot/wiring-preprocessor#readme",
