@@ -2,6 +2,7 @@
 //       THIS IS A GENERATED FILE - DO NOT EDIT       //
 /******************************************************/
 
+#line 1 "/workspace/input.ino"
 // This should be preprocessed
 
 // #pragma PARTICLE_NO_PREPROCESSOR

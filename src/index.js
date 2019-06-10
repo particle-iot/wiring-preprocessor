@@ -50,17 +50,14 @@ module.exports.processFile = (inputFile, content) => {
 		].join('\n')
 	);
 
-	// Add application.h to the top of the file unless it is already included
+	// Add default line directive, add application.h if missing
+	let directives = [`#line 1 "${inputFile}"`];
+
 	if (appIncludeIdx === -1){
-		content = utilities.stringInsertLines(
-			content,
-			0,
-			[
-				'#include "application.h"',
-				`#line 1 "${inputFile}"`
-			].join('\n')
-		);
+		directives.unshift('#include "application.h"', );
 	}
+
+	content = utilities.stringInsertLines(content, 0, directives.join('\n'));
 
 	// add banner
 	return utilities.stringInsertLines(content, 0, banner.join('\n'));

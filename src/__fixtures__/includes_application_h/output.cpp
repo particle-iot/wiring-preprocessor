@@ -2,6 +2,7 @@
 //       THIS IS A GENERATED FILE - DO NOT EDIT       //
 /******************************************************/
 
+#line 1 "/workspace/input.ino"
 /* This blinks the LED */
 #define PIN D7
 #define RATE 10
