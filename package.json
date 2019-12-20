@@ -49,7 +49,7 @@
     "release-it": "^12.3.0"
   },
   "engines": {
-    "node": "8.x",
-    "npm": "5.x"
+    "node": ">=8",
+    "npm": "6.x"
   }
 }

@@ -36,7 +36,7 @@ fs.writeFileSync('app.cpp', cppFile);
 
 ## Development
 
-1. Install Node.js [`node@8.x` and `npm@5.x` are required]
+1. Install Node.js [`node@12` and `npm@6` are required]
 1. Clone this repository `$ git clone git@github.com:particle-iot/wiring-preprocessor.git && cd ./wiring-preprocessor`
 1. Install dependencies `$ npm install`
 1. View available commands `$ npm run`
