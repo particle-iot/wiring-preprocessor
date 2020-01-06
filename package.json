@@ -43,10 +43,10 @@
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "eslint-config-particle": "^2.2.1",
-    "glob": "^7.1.4",
-    "mocha": "^6.1.4",
+    "glob": "^7.1.6",
+    "mocha": "^6.2.2",
     "nyc": "^14.1.1",
-    "release-it": "^12.3.0"
+    "release-it": "^12.4.3"
   },
   "engines": {
     "node": ">=8",
