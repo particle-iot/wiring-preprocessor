@@ -54,7 +54,7 @@ module.exports.processFile = (inputFile, content) => {
 	let directives = [`#line 1 "${inputFile}"`];
 
 	if (appIncludeIdx === -1){
-		directives.unshift('#include "application.h"');
+		directives.unshift('#include "Particle.h"');
 	}
 
 	content = utilities.stringInsertLines(content, 0, directives.join('\n'));
