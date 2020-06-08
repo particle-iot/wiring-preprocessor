@@ -41,8 +41,8 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^5.16.0",
-    "eslint-config-particle": "^2.2.1",
+    "eslint": "^7.2.0",
+    "eslint-config-particle": "^2.4.0",
     "glob": "^7.1.6",
     "mocha": "^6.2.2",
     "nyc": "^14.1.1",

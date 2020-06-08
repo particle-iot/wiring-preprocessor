@@ -1,7 +1,6 @@
 module.exports = {
 	extends: ['eslint-config-particle'],
 	parserOptions: {
-		ecmaVersion: 8,
 		sourceType: 'module'
 	},
 	env: {
@@ -14,6 +13,6 @@ module.exports = {
 		serviceworker: true
 	},
 	rules: {
-		"no-control-regex": "off"
+		'no-control-regex': 'off'
 	}
 };

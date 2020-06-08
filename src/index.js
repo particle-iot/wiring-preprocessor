@@ -51,7 +51,7 @@ module.exports.processFile = (inputFile, content) => {
 	);
 
 	// Add default line directive, add application.h if missing
-	let directives = [`#line 1 "${inputFile}"`];
+	const directives = [`#line 1 "${inputFile}"`];
 
 	if (appIncludeIdx === -1){
 		directives.unshift('#include "Particle.h"');
