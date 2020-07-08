@@ -42,7 +42,7 @@ const Parser = {
 
 	types: {
 		declarations(str) {
-			const typeRegex = new RegExp(/\b(class|struct|enum)\b\s+(\w+)/gm);
+			const typeRegex = new RegExp(/\b(?!enum class)(class|struct|enum)\b\s+(\w+)/gm);
 			return Parser.matchAll(typeRegex, str);
 		},
 		typedefs(str) {
