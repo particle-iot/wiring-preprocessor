@@ -4,6 +4,8 @@
 
 This Javascript library preprocesses `.ino` files into `.cpp`.
 
+[Overview](#overview) | [Installation](#installation) | [Development](#development) | [Examples](#examples) | [Releasing](#releasing) | [License](#license)
+
 
 ## Overview
 
@@ -16,21 +18,10 @@ If you define custom classes, structs or enums in your code, the preprocessor wi
 If you are getting unexpected errors when compiling valid code, it could be the preprocessor causing issues in your code. You can disable the preprocessor by adding `#pragma PARTICLE_NO_PREPROCESSOR` to your file. Be sure to add `#include "Particle.h"` and the function prototypes to your code.
 
 
-## Installing
+## Installation
 
 ```
 npm install wiring-preprocessor
-```
-
-
-## Using
-
-```
-const preprocessor = require('wiring-preprocessor');
-
-const inoFile = fs.readFileSync('app.ino', 'utf8');
-const cppFile = preprocessor.processFile('app.ino', inoFile);
-fs.writeFileSync('app.cpp', cppFile);
 ```
 
 
@@ -44,15 +35,24 @@ fs.writeFileSync('app.cpp', cppFile);
 1. Start Hacking!
 
 
+## Examples
+
+```
+const preprocessor = require('wiring-preprocessor');
+
+const inoFile = fs.readFileSync('app.ino', 'utf8');
+const cppFile = preprocessor.processFile('app.ino', inoFile);
+fs.writeFileSync('app.cpp', cppFile);
+```
+
+
 ## Run tests
 
 ```
 npm test
 ```
 
-## Release
 
-```
-npm run release <major|minor|patch>
-```
+## Releasing
 
+See the release process in the [RELEASE.md](RELEASE.md) file.

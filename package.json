@@ -36,8 +36,7 @@
     "lint": "eslint . --ext .js --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
     "coverage": "nyc --reporter=text --include='src/**/*.js' --temp-dir=./tmp/ --check-coverage --lines 85 npm run test:unit:silent",
-    "reinstall": "rm -rf ./node_modules && npm i",
-    "release": "release-it"
+    "reinstall": "rm -rf ./node_modules && npm i"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -45,11 +44,10 @@
     "eslint-config-particle": "^2.4.0",
     "glob": "^7.1.6",
     "mocha": "^6.2.2",
-    "nyc": "^14.1.1",
-    "release-it": "^12.4.3"
+    "nyc": "^14.1.1"
   },
   "engines": {
-    "node": ">=8",
-    "npm": "6.x"
+    "node": ">=12",
+    "npm": "8.x"
   }
 }
