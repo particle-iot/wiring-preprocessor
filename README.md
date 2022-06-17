@@ -1,6 +1,6 @@
 # Wiring Preprocessor
 
-[![Build Status](https://travis-ci.com/particle-iot/wiring-preprocessor.svg?branch=master)](https://travis-ci.com/particle-iot/wiring-preprocessor)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/particle-iot/wiring-preprocessor/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/particle-iot/wiring-preprocessor/tree/master)
 
 This Javascript library preprocesses `.ino` files into `.cpp`.
 
@@ -27,7 +27,7 @@ npm install wiring-preprocessor
 
 ## Development
 
-1. Install Node.js [`node@12` and `npm@6` are required]
+1. Install Node.js [`node@16` and `npm@8` are required]
 1. Clone this repository `$ git clone git@github.com:particle-iot/wiring-preprocessor.git && cd ./wiring-preprocessor`
 1. Install dependencies `$ npm install`
 1. View available commands `$ npm run`
