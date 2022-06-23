@@ -1,8 +1,10 @@
 # Wiring Preprocessor
 
-[![Build Status](https://travis-ci.com/particle-iot/wiring-preprocessor.svg?branch=master)](https://travis-ci.com/particle-iot/wiring-preprocessor)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/particle-iot/wiring-preprocessor/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/particle-iot/wiring-preprocessor/tree/master)
 
 This Javascript library preprocesses `.ino` files into `.cpp`.
+
+[Overview](#overview) | [Installation](#installation) | [Development](#development) | [Examples](#examples) | [Releasing](#releasing) | [License](#license)
 
 
 ## Overview
@@ -16,14 +18,24 @@ If you define custom classes, structs or enums in your code, the preprocessor wi
 If you are getting unexpected errors when compiling valid code, it could be the preprocessor causing issues in your code. You can disable the preprocessor by adding `#pragma PARTICLE_NO_PREPROCESSOR` to your file. Be sure to add `#include "Particle.h"` and the function prototypes to your code.
 
 
-## Installing
+## Installation
 
 ```
 npm install wiring-preprocessor
 ```
 
 
-## Using
+## Development
+
+1. Install Node.js [`node@16` and `npm@8` are required]
+1. Clone this repository `$ git clone git@github.com:particle-iot/wiring-preprocessor.git && cd ./wiring-preprocessor`
+1. Install dependencies `$ npm install`
+1. View available commands `$ npm run`
+1. Run the tests `$ npm test`
+1. Start Hacking!
+
+
+## Examples
 
 ```
 const preprocessor = require('wiring-preprocessor');
@@ -34,25 +46,13 @@ fs.writeFileSync('app.cpp', cppFile);
 ```
 
 
-## Development
-
-1. Install Node.js [`node@12` and `npm@6` are required]
-1. Clone this repository `$ git clone git@github.com:particle-iot/wiring-preprocessor.git && cd ./wiring-preprocessor`
-1. Install dependencies `$ npm install`
-1. View available commands `$ npm run`
-1. Run the tests `$ npm test`
-1. Start Hacking!
-
-
 ## Run tests
 
 ```
 npm test
 ```
 
-## Release
 
-```
-npm run release <major|minor|patch>
-```
+## Releasing
 
+See the release process in the [RELEASE.md](RELEASE.md) file.
